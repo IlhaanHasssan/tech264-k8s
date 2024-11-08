@@ -1,0 +1,3 @@
+# DEPLOYING THE SPARTA TEST APP AND DATABASE
+
+- [DEPLOYING THE SPARTA TEST APP AND DATABASE](#deploying-the-sparta-test-app-and-database)

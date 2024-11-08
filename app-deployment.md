@@ -3,10 +3,10 @@
 - [***DEPLOYING THE SPARTA TEST APP USING K8S***](#deploying-the-sparta-test-app-using-k8s)
   - [***Deploying NGINX***](#deploying-nginx)
     - [***Steps to take:***](#steps-to-take)
-      - [Different editing methods for yaml file to change deployment](#different-editing-methods-for-yaml-file-to-change-deployment)
-  - [DEPLOYING THE SPARTA TEST APP WITHOUT DATABASE](#deploying-the-sparta-test-app-without-database)
-  - [DEPLOYING THE SPARTA TEST APP AND DATABASE](#deploying-the-sparta-test-app-and-database)
-  - [DEPLOYING THE SPARTA TEST APP WITH VP AND VPC](#deploying-the-sparta-test-app-with-vp-and-vpc)
+      - [***Different editing methods for yaml file to change deployment***](#different-editing-methods-for-yaml-file-to-change-deployment)
+  - [***DEPLOYING THE SPARTA TEST APP WITHOUT DATABASE***](#deploying-the-sparta-test-app-without-database)
+  - [***DEPLOYING THE SPARTA TEST APP AND DATABASE***](#deploying-the-sparta-test-app-and-database)
+  - [***DEPLOYING THE SPARTA TEST APP WITH VP AND VPC***](#deploying-the-sparta-test-app-with-vp-and-vpc)
 
 
 ## ***Deploying NGINX***
@@ -18,7 +18,7 @@
 
 ![alt text](./K8S-images/createt1.png)
 
-#### Different editing methods for yaml file to change deployment
+#### ***Different editing methods for yaml file to change deployment***
 5. You can edit your yaml file configuration on the fly with a few different methods
 6. Firstly, you can use this command
 
@@ -53,13 +53,13 @@
 
 ![alttext](./K8S-images/rmpodsrecreate.png)
 
-## DEPLOYING THE SPARTA TEST APP WITHOUT DATABASE
+## ***DEPLOYING THE SPARTA TEST APP WITHOUT DATABASE***
 ***[DEPLOY WITHOUT DATABASE](./k8s-yaml-definitions/local-sparta-app-no-db/README.md)***
 
-## DEPLOYING THE SPARTA TEST APP AND DATABASE
+## ***DEPLOYING THE SPARTA TEST APP AND DATABASE***
 ***[DEPLOY WITH DATABASE](./k8s-yaml-definitions/local-sparta-app/README.md)***
 
-## DEPLOYING THE SPARTA TEST APP WITH VP AND VPC
+## ***DEPLOYING THE SPARTA TEST APP WITH VP AND VPC***
 ***[DEPLOY WITH VP & VPC](./k8s-yaml-definitions/local-sparta-app-vp-vpc/README.md)***
 
 

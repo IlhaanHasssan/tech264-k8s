@@ -1,0 +1,29 @@
+---
+# mongo-pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-pv
+spec:
+  capacity:
+    storage: 1Gi  # Adjust storage as needed; 1Gi should be enough for 100 records
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain  # Keeps data even if PVC is deleted
+  storageClassName: manual
+  hostPath:
+    path: /data/mongo  # Path on the node; for local storage (adjust as per your environment)
+---
+# mongo-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 1Gi  # Match the storage size defined in the PV
+---

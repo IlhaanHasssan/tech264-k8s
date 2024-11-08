@@ -12,6 +12,26 @@
 
 1. Once you have your sparta test app homepage up and running, you now need to create a database service and deployment.
 2. To do this, you will need to create two YAML files, one for the **[mongodb service](mongodb-service.yaml)** and one for the **[database deployment](db-deploy.yaml)**
-3. Inside those files, you will find a detailed explanation of how I have structured my database service and deployment. You can check it is running using **`kubectl get deploy`**
-4. 
+3. Inside those files, you will find a detailed explanation of how I have structured my database service and deployment. 
+4. Run your new files using **`kubectl apply -f <file-name>`** 
+
+![](/tech264-k8s/K8S-images/local-sparta-app-deployment.png)
+
+
+5. You can check it is running using **`kubectl get deploy`**
+6.  Now your posts page should be visible, however it will not be seeded automatically
+7.  You need to add the environment variable to your **[`app-deploy`](app-deploy.yaml)**
+
+![](/tech264-k8s/K8S-images/dbhost.png)
+
+8. Your database should be visible when you run **`kubectl get deploy`**
+
+![](/tech264-k8s/K8S-images/deploy-with-db.png)
+
+9. Now you posts page should be populated at **http://localhost:30001/posts**
+
+![](/tech264-k8s/K8S-images/postspgtask3&4kb.png)
+
+
+
 

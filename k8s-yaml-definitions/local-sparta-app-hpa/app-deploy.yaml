@@ -27,4 +27,9 @@ spec:
         - name: DB_PORT
           value: "27017"
       command: ["sh", "-c", "node /usr/src/app/seeds/seed.js && npm start"]   
+      resources:
+        requests:
+          cpu: "100m"
+        limits:
+          cpu: "500m"
 ---

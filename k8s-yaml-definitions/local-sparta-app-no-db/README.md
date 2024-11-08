@@ -1,15 +1,16 @@
 # ***DEPLOYING THE SPARTA TEST APP WITHOUT THE DATABASE***
 
 - [***DEPLOYING THE SPARTA TEST APP WITHOUT THE DATABASE***](#deploying-the-sparta-test-app-without-the-database)
+  - [***Pre-requisites***](#pre-requisites)
   - [***Steps***](#steps)
-    - [***Pre-requisites***](#pre-requisites)
     - [***Seeding the database manually***](#seeding-the-database-manually)
+
+## ***Pre-requisites***
+- a working sparta test app image that you can pull from Docker Hub **`docker pull ihassan777/sparta-test-app:v1-no-db`**
+- Kubernetes downloaded and the service running, see [download k8s](/tech264-k8s/download-kubernetes.md) for further instructions
 
 
 ## ***Steps***
-### ***Pre-requisites***
-- a working sparta test app image that you can pull from Docker Hub **`docker pull ihassan777/sparta-test-app:v1-no-db`**
-- Kubernetes downloaded and the service running, see [download k8s](/tech264-k8s/download-kubernetes.md) for further instructions
 
 1. Create a new repo in your **`k8s-yaml-definitions`** folder named **`local-sparta-app-no-db`**
 2. Inside this repo, create two files named **[`app-deploy`](app-deploy.yaml)** and **[`app-service`](app-service.yaml)**
@@ -29,4 +30,4 @@
 
 ![alt text](/tech264-k8s/K8S-images/seeding-database-manually.png)
 
-6. You should now be able to see your data on your recent posts page at **http://localhost:30001/posts**
+6. You should now be able to see your data on your recent posts page at **http://localhost:30001/posts** *(Note ⛔ once you delete and re-run these files, posts page will no longer work!)*

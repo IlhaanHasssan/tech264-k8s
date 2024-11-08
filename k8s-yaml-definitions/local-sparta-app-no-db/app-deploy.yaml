@@ -1,0 +1,24 @@
+---
+# YAML is case sensitive
+# use spaces not a tab
+apiVersion: apps/v1 #specify api to use for deployment
+kind: Deployment #kind of service/object you want to create
+metadata:
+ name: sparta-test-app-deployment
+spec:
+ selector:
+  matchLabels:
+    app: sparta-test-app # look for this label/tag to match the k8 service
+ # create a ReplicaSet with instances/pods
+ replicas: 3
+ template:
+  metadata: 
+    labels:
+      app: sparta-test-app
+  spec:   
+    containers:
+    - name: nodejs-app-container
+      image: ihassan777/sparta-test-app:v1-no-db
+      ports:
+      - containerPort: 3000 
+---

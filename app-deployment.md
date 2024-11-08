@@ -5,6 +5,7 @@
   - [***DEPLOYING THE SPARTA TEST APP WITHOUT DATABASE***](#deploying-the-sparta-test-app-without-database)
   - [***DEPLOYING THE SPARTA TEST APP AND DATABASE***](#deploying-the-sparta-test-app-and-database)
   - [***DEPLOYING THE SPARTA TEST APP WITH VP AND VPC***](#deploying-the-sparta-test-app-with-vp-and-vpc)
+  - [***DEPLOYING THE SPARTA TEST APP WITH HPA***](#deploying-the-sparta-test-app-with-hpa)
 
 
 ## ***DEPLOYING NGINX***
@@ -18,6 +19,9 @@
 
 ## ***DEPLOYING THE SPARTA TEST APP WITH VP AND VPC***
 ***[DEPLOY WITH VP & VPC](./k8s-yaml-definitions/local-sparta-app-vp-vpc/README.md)***
+
+## ***DEPLOYING THE SPARTA TEST APP WITH HPA***
+***[DEPLOY WITH HPA](./k8s-yaml-definitions/local-sparta-app-hpa/README.md)***
 
 
 

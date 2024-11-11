@@ -1,30 +1,47 @@
 ---
 # YAML is case sensitive
-# use spaces not a tab
-apiVersion: apps/v1 #specify api to use for deployment
-kind: Deployment #kind of service/object you want to create
+# Use spaces, not tabs, for indentation
+
+# Specify the API version to use for deployment resources
+apiVersion: apps/v1 
+
+# Define the type of Kubernetes resource being created, in this case, a Deployment
+kind: Deployment 
+
+# Metadata for the Deployment
 metadata:
- name: sparta-test-app-deployment
+  name: sparta-test-app-deployment # Name of the Deployment
+
+# Specification for the Deployment
 spec:
- selector:
-  matchLabels:
-    app: sparta-test-app # look for this label/tag to match the k8 service
- # create a ReplicaSet with instances/pods
- replicas: 3
- template:
-  metadata: 
-    labels:
-      app: sparta-test-app
-  spec:   
-    containers:
-    - name: nodejs
-      image: ihassan777/sparta-test-app:v1-no-db
-      ports:
-      - containerPort: 3000
-      env:
-        - name: DB_HOST
-          value: mongodb://mongodb-service:27017/posts
-        - name: DB_PORT
-          value: "27017"
-      command: ["sh", "-c", "node /usr/src/app/seeds/seed.js && npm start"]   
----
+  selector:
+    matchLabels:
+      app: sparta-test-app # Label to identify pods managed by this Deployment; must match the pod template labels
+
+  # Define the number of pod replicas to create
+  replicas: 3 
+
+  # Template for the pods that the Deployment will manage
+  template:
+    metadata:
+      labels:
+        app: sparta-test-app # Label assigned to the pods, matching the selector above
+
+    # Specification for the containers within the pod
+    spec:   
+      containers:
+      - name: nodejs # Name of the container within the pod
+        image: ihassan777/sparta-test-app:v1-no-db # Docker image for the container
+        ports:
+        - containerPort: 3000 # Port exposed by the container
+
+        # Environment variables for the container
+        env:
+          - name: DB_HOST # Database host connection string
+            value: mongodb://mongodb-service:27017/posts # MongoDB connection URI
+          - name: DB_PORT # Database port
+            value: "27017" # Port number as a string
+
+        # Command to run when the container starts
+        command: ["sh", "-c", "node /usr/src/app/seeds/seed.js && npm start"] 
+        # Runs a script to seed the database, then starts the Node.js app

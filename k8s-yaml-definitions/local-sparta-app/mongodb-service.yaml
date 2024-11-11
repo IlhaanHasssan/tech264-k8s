@@ -1,16 +1,24 @@
----
 # mongo-service.yaml
-apiVersion: v1
-kind: Service
+
+# Specify the API version to use for service resources
+apiVersion: v1 
+
+# Define the type of Kubernetes resource being created, in this case, a Service
+kind: Service 
+
+# Metadata for the Service
 metadata:
-  name: mongodb-service
-  namespace: default  
+  name: mongodb-service # Name of the Service
+  namespace: default # Namespace in which this Service is created (default namespace)
+
+# Specification for the Service
 spec:
   selector:
-    app: mongodb
+    app: mongodb # Label to match with the pods managed by the MongoDB Deployment
+
   ports:
-  - protocol: TCP
-    port: 27017
-    targetPort: 27017
-  type: ClusterIP    
----
+  - protocol: TCP # Protocol used by the Service (TCP is standard for MongoDB)
+    port: 27017 # Port on the Service accessible within the cluster
+    targetPort: 27017 # Port on the container that the traffic will be forwarded to
+
+  type: ClusterIP # Type of Service; ClusterIP exposes the Service only within the cluster

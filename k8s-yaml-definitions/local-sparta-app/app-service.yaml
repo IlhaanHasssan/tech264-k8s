@@ -1,15 +1,24 @@
----
-apiVersion: v1
-kind: Service
+# Specify the API version to use for service resources
+apiVersion: v1 
+
+# Define the type of Kubernetes resource being created, in this case, a Service
+kind: Service 
+
+# Metadata for the Service
 metadata:
-  name:  sparta-test-app
-  namespace: default
+  name: sparta-test-app # Name of the Service
+  namespace: default # Namespace in which this Service is created (default namespace)
+
+# Specification for the Service
 spec:
   ports:
-  - nodePort:  30001 #range is 30000-32768
-    port:  3000
-    targetPort:  3000
+  - nodePort: 30001 # Port exposed on each Node in the cluster (range is 30000-32768)
+    port: 3000 # Port on the Service accessible within the cluster
+    targetPort: 3000 # Port on the container that the traffic will be forwarded to
+  
+  # Selector to match this Service to the pods with the specified label
   selector:
-    app: sparta-test-app # this label to match service to deployment
+    app: sparta-test-app # Label to match with pods managed by the Deployment
+
+  # Type of Service; NodePort exposes the service on each Node’s IP at the specified NodePort
   type: NodePort 
----

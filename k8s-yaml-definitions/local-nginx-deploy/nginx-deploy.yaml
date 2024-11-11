@@ -1,22 +1,32 @@
-# YAML is case sensitive
-# use spaces not a tab
-apiVersion: apps/v1 #specify api to use for deployment
-kind: Deployment #kind of service/object you want to create
+# Specify the API version to use for deployment resources
+apiVersion: apps/v1 
+
+# Define the type of Kubernetes resource being created, in this case, a Deployment
+kind: Deployment 
+
+# Metadata for the Deployment
 metadata:
- name: nginx-deployment
+  name: nginx-deployment # Name of the Deployment
+
+# Specification for the Deployment
 spec:
- selector:
-  matchLabels:
-    app: nginx # look for this label/tag to match the k8 service
- # create a ReplicaSet with instances/pods
- replicas: 5
- template:
-  metadata: 
-    labels:
-      app: nginx
-  spec:   
-    containers:
-    - name: nginx
-      image: ihassan777/custom-nginx-image:latest
-      ports:
-      - containerPort: 80 	
+  selector:
+    matchLabels:
+      app: nginx # Label used to identify the pods managed by this Deployment
+
+  # Define the number of pod replicas to create
+  replicas: 5 
+
+  # Template for the pods that the Deployment will manage
+  template:
+    metadata:
+      labels:
+        app: nginx # Label assigned to the pods; must match selector's label
+
+    # Specification for the containers within the pod
+    spec:   
+      containers:
+      - name: nginx # Name of the container within the pod
+        image: ihassan777/custom-nginx-image:latest # Docker image for the container
+        ports:
+        - containerPort: 80 # Port exposed by the container

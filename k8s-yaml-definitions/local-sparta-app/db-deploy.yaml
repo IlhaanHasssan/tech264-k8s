@@ -1,30 +1,46 @@
----
 # mongo-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
+
+# Specify the API version to use for deployment resources
+apiVersion: apps/v1 
+
+# Define the type of Kubernetes resource being created, in this case, a Deployment
+kind: Deployment 
+
+# Metadata for the Deployment
 metadata:
-  name: mongodb
+  name: mongodb # Name of the Deployment
+
+# Specification for the Deployment
 spec:
-  replicas: 1
+  replicas: 1 # Number of MongoDB pod replicas to create
   selector:
     matchLabels:
-      app: mongodb
+      app: mongodb # Label used to identify pods managed by this Deployment
+
+  # Template for the MongoDB pod managed by the Deployment
   template:
     metadata:
       labels:
-        app: mongodb
+        app: mongodb # Label assigned to the pods, matching the selector above
+
+    # Specification for the containers within the pod
     spec:
       containers:
-        - name: mongodb-container
-          image: mongo:7.0.6
-          ports:
-            - containerPort: 27017
-          volumeMounts:
-            - name: mongo-data
-              mountPath: /data/db
-          args:
-            - --bind_ip_all  # Allow connections from other pods
+      - name: mongodb-container # Name of the MongoDB container
+        image: mongo:7.0.6 # MongoDB Docker image to use
+        ports:
+        - containerPort: 27017 # MongoDB default port exposed by the container
+
+        # Mount a volume to store MongoDB data
+        volumeMounts:
+        - name: mongo-data # Name of the volume mount
+          mountPath: /data/db # Path inside the container where the volume is mounted
+
+        # Arguments passed to the MongoDB container
+        args:
+        - --bind_ip_all # Allow MongoDB to accept connections from other pods
+
+      # Define volumes for the pod
       volumes:
-      - name: mongo-data
-        emptyDir: {}
----
+      - name: mongo-data # Name of the volume
+        emptyDir: {} # Use an emptyDir volume, which is a temporary storage that is deleted when the pod is removed

@@ -44,6 +44,9 @@
 - Together, PV and PVC abstract storage provisioning, allowing Kubernetes applications to use persistent storage without requiring users to manage the underlying infrastructure.
 
 
+![alt text](image.png)
+
+
 
 ## ***Adding PV and PVC to existing sparta test app***
 
@@ -58,9 +61,22 @@
 1. create a new folder inside your **`k8s-yaml-definitions`** folder named **`local-sparta-app-vp-vpc`**
 2. Here, you should have your files that we already know are running correctly to produce your sparta test app with a seeded posts page.
 3. Now we want to create them with persistent volume, meaning the dummy data on our posts page should remain the same, even if we delete our deployments and re-run them.
-4. 
+4. First we delete the deloyements we are currently running, using **`kubectl delete deploy <deployment-name>`**
+5. Now we will create a **[vp and vpc](mongo-pv-pvc.yaml)** YAML file to create persistant volume, you will find a detailed explanatation of each line of code in that file
+6. Run this file using **`kubectl apply -f mongo-pv-pvc`**
+7. Now when your run **`kubectl get pv`** and **`kubectl get pvc`**
+
+![](/tech264-k8s/K8S-images/getpv.png)
 
 
+![](/tech264-k8s/K8S-images/getpvc.png)
+
+
+8. Now, you know they are running you can reapply your YAML files, keep notes of the content on your posts page.
+9. Delete them again, reapply them and the data on your posts page should be the same
+10. This was my posts page before and after reapplying my files.
+
+![alt text](/tech264-k8s/K8S-images/recentposts-unchanged.png)
 
 
 
